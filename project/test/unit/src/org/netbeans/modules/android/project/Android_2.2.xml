@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE platform PUBLIC "-//NetBeans//DTD Davlik PlatformDefinition 1.0//EN" "http://www.netbeans.org/dtds/dalvik-platformdefinition-1_0.dtd">
+<platform name="Android 2.2">
+    <properties>
+        <property name="android.default.skin" value="QVGA-L"/>
+        <property name="android.skins" value="QVGA-L,QVGA-P,HVGA-L,HVGA-P"/>
+        <property name="platform.ant.name" value="Android_2.2"/>
+    </properties>
+    <sysproperties/>
+    <home>
+        <resource>file:/some/path/to/android-sdk-linux_x86/platforms/android-8/</resource>
+    </home>
+</platform>

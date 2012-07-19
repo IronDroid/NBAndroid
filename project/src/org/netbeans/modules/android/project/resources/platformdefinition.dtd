@@ -1,0 +1,42 @@
+<!-- "-//NetBeans//DTD Davlik PlatformDefinition 1.0//EN" "http://www.netbeans.org/dtds/davlik-platformdefinition-1_0.dtd" -->
+
+<!--
+    DTD to describe a standard JDK/JRE installation
+-->
+
+<!--
+attributes:
+    name = displayed name of the platform, must be present unless
+     the platform is default.
+    default = yes|<missing>
+-->
+<!ELEMENT platform (properties?,sysproperties?,home?)>
+<!ATTLIST platform
+    name CDATA #IMPLIED
+>
+
+<!--
+Properties element lists various properties associated with the Platform
+by extension modules.
+-->
+<!ELEMENT properties (property)*>
+
+<!--
+Sysproperties hold a list of system properties as reported by the JDK
+-->
+<!ELEMENT sysproperties (property)*>
+
+<!--Holds the roots where the jdk is installed -->
+<!ELEMENT home (resource)*>
+
+<!--Represents a root of a path, holds a stringified URL-->
+<!ELEMENT resource (#PCDATA)>
+
+<!--
+Definition of one property: it has a name and some optional string data
+-->
+<!ELEMENT property EMPTY>
+<!ATTLIST property
+    name CDATA #REQUIRED
+    value CDATA #IMPLIED
+>

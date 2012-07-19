@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="code-analysis" basedir="." default="scanbugs">
+
+  <!-- targets to perform various checks for bug patterns -->
+  <target name="scanbugs" depends="init,find_srcpath,set_srcpath,check-findbugs,run-findbugs,run-checkstyle"
+          description="Runs various code analysis tools">
+    <echo message="Scanning module ${code.name.base} for bug patterns"/>
+  
+  <!--
+    <ant dir="${nb_all}/libs/external" target="unscramble"/>
+    <mkdir dir="tmp"/>
+    <unzip src="${nb_all}/libs/external/pmd-netbeans35-bin-0.91.zip" dest="tmp">
+        <patternset>
+            <include name="pmd.nbm"/>
+        </patternset>
+    </unzip>
+    <unzip src="tmp/pmd.nbm" dest="tmp">
+        <patternset>
+            <include name="**/*.jar"/>
+        </patternset>
+    </unzip>
+    <path id="pmd-cp">
+      <pathelement location="tmp/netbeans/modules/ext/jakarta-oro-2.0.jar"/>
+      <pathelement location="tmp/netbeans/modules/ext/jaxen-core-1.0-fcs.jar"/>
+      <pathelement location="tmp/netbeans/modules/ext/saxpath-1.0-fcs.jar"/>
+      <pathelement location="tmp/netbeans/modules/ext/pmd-1.3.jar"/>
+    </path>
+    <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd-cp"/>
+    
+    <tempfile property="temp.file" />
+    <echo file="${temp.file}" message="output.name=pmd_${module.name}.html"/>
+    <replace file="${temp.file}" token="/" value="_"/>
+    <property file="${temp.file}"/>
+    <delete file="${temp.file}"/>
+    <echo message="using output ${output.name}"/>
+    <property name="pmd.rules" value="rulesets/strings.xml,rulesets/basic.xml,rulesets/unusedcode.xml,rulesets/design.xml,rulesets/imports.xml,rulesets/coupling.xml,rulesets/strictexception.xml"/>
+    <pmd rulesetfiles="${pmd.rules}"
+         shortfilenames="true">
+        <formatter type="html" toFile="${nb_all}/nbbuild/${output.name}"/>
+        <fileset refid="src.files"/>
+        <fileset refid="libsrc.files"/>
+    </pmd>-->
+    <!--<delete dir="tmp"/>-->
+
+  </target>
+  
+  <target name="find_srcpath">
+    <!--<echoproperties destfile="findbugs.properties"/>-->
+    <!-- TODO how to deal with libsrc/antsrc -->
+    
+    <!-- define as empty and redefine if the dir exists -->
+    <fileset id="src.files" dir=".">
+      <include name=""/>
+    </fileset>
+  </target>
+  <target name="set_srcpath" if="src.dir">
+    <fileset id="src.files" dir="${src.dir}">
+      <include name="**/*.java"/>
+    </fileset>
+  </target>
+  
+  <target name="check-findbugs">
+    <!-- sets property for modules that are projectized and if the findbugs is avalable -->
+    <property name="findbugs.home" value="${suite.dir}/libs/findbugs-1.3.9" />
+    <path id="fb-cp">
+      <pathelement location="${findbugs.home}/lib/findbugs.jar"/>
+      <pathelement location="${findbugs.home}/lib/findbugs-ant.jar"/>
+      <pathelement location="${findbugs.home}/lib/bcel.jar"/>
+      <pathelement location="${findbugs.home}/lib/dom4j-1.6.1.jar"/>
+    </path>
+    
+    <echo message="module.jar ${module.jar}" level="verbose"/>
+    <available property="aaa" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="fb-cp"/>
+    <echo message="aaa ${aaa}" level="verbose"/>
+        
+    <condition property="run.findbugs">
+      <and>
+        <available classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="fb-cp"/>
+        <available file="${cluster}/${module.jar}"/>
+      </and>
+    </condition>
+  </target>
+  
+  <target name="run-findbugs" if="run.findbugs">
+    <echo message="Running findbugs for module ${code.name.base}"/>
+    <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="fb-cp"/>
+    
+    <property name="suite.build.dir" value="${suite.dir}/build"/> <!-- why is this missing in C/B? -->
+    <property name="outputfb.name" value="${suite.build.dir}/findbugs_${code.name.base.dashes}.xml"/>
+    <echo message="using output ${outputfb.name}"/>
+    <path id="src.path">
+      <fileset refid="src.files"/>
+    </path>
+    <findbugs home="${findbugs.home}"
+              output="xml"
+              outputFile="${outputfb.name}" >
+      <auxClasspath path="${module.run.classpath}"/>
+      <sourcePath refid="src.path" />
+      <class location="${cluster}/${module.jar}" />
+    </findbugs>
+  </target>
+  
+  <target name="run-checkstyle">
+    <!-- sets property for modules that are projectized and if the findbugs is avalable -->
+    <echo message="Running findbugs for module ${code.name.base}"/>
+    <property name="checkstyle.home" value="${suite.dir}/libs/checkstyle-5.3" />
+    
+    <taskdef resource="checkstyletask.properties"
+             classpath="${checkstyle.home}/checkstyle-5.3-all.jar"/>
+    
+    <property name="suite.build.dir" value="${suite.dir}/build"/> <!-- why is this missing in C/B? -->
+    <property name="outputchck.name" value="${suite.build.dir}/checkstyle_${code.name.base.dashes}.xml"/>
+    <echo message="using output ${outputchck.name}"/>
+    <path id="src.path">
+      <fileset refid="src.files"/>
+    </path>
+    <checkstyle config="${checkstyle.home}/sun_checks.xml"
+            failOnViolation="false">
+        <fileset dir="${src.dir}" includes="**/*.java"/>
+        <formatter type="plain"/>
+        <formatter type="xml" toFile="${outputchck.name}"/>
+    </checkstyle>
+  </target>
+</project>

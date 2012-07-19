@@ -1,0 +1,15 @@
+* How to build archive for download
+
+: ${VERSION:=1.5beta}
+: ${KENAIAPIS:=$HOME/src/kenai.com/kenaiapis~downloads-client}
+: ${BUILD_DIR:=$HOME/programs/jenkins/jobs/NBAndroid-home}
+
+mkdir nbandroid-$VERSION
+cp -av $BUILD_DIR/lastStable/archive/build/updates/* nbandroid-$VERSION
+zip -r nbandroid-$VERSION.zip nbandroid-$VERSION
+
+rm -rf updatecenter
+mv nbandroid-$VERSION updatecenter
+$KENAIAPIS/bin/dlutil -r kenai.com,nbandroid push updatecenter /
+# $KENAIAPIS/bin/dlutil -r kenai.com,nbandroid push nbandroid-$VERSION.zip /
+# rm -rf updatecenter

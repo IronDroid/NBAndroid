@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.netbeans.modules.android.kit
+OpenIDE-Module-Localizing-Bundle: org/netbeans/modules/android/kit/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.15
+OpenIDE-Module-Java-Dependencies: Java > 1.6

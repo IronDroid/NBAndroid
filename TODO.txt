@@ -1,0 +1,14 @@
+* add support for library and test project. Library is likely just project without run that has special property set. wizards. 
+* projects UI:
+** fix project explorer to show libraries
+* usage statistics
+* DDMS: 
+** emulator controls (voice signal, data, GPS), 
+** file explorer, 
+** profiling, heap dumps
+
+* complete testing support is missing
+
+* XML editing for manifest and layout files
+* rebuild R.java after edits automatically
+* GUI editors for layouts (and manifest)

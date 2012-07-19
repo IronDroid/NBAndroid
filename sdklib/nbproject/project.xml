@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.apisupport.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
+            <code-name-base>org.netbeans.modules.android.sdklib</code-name-base>
+            <suite-component/>
+            <module-dependencies>
+                <dependency>
+                    <code-name-base>com.android.common</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.12</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.netbeans.modules.android.androidprefs</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <specification-version>1.0</specification-version>
+                    </run-dependency>
+                </dependency>
+            </module-dependencies>
+            <public-packages>
+                <package>com.android.sdklib</package>
+                <package>com.android.sdklib.annotations</package>
+                <package>com.android.sdklib.build</package>
+                <package>com.android.sdklib.internal.avd</package>
+                <package>com.android.sdklib.internal.build</package>
+                <package>com.android.sdklib.internal.export</package>
+                <package>com.android.sdklib.internal.project</package>
+                <package>com.android.sdklib.internal.repository</package>
+                <package>com.android.sdklib.io</package>
+                <package>com.android.sdklib.repository</package>
+                <package>com.android.sdklib.resources</package>
+                <package>com.android.sdklib.util</package>
+                <package>com.android.sdklib.xml</package>
+            </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/sdklib.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/sdklib.jar</binary-origin>
+            </class-path-extension>
+        </data>
+    </configuration>
+</project>

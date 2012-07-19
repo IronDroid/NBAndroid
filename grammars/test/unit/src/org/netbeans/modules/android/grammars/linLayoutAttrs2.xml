@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+        android:id="@+id/main_screen"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:padding="6dip">
+
+    <Spinner
+        android:id="@+id/currency_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="16sp"
+        android:prompt="HERE"
+        />
+    <Spinner
+        android:id="@+id/currency_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="6dp"
+
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/currency_from"
+        android:textSize="16sp"
+        android:prompt="@string/currency_to"
+        />
+
+    <TextView
+        android:id="@+id/infoLine"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/currency_to"
+        android:layout_alignWithParentIfMissing="true"
+        />
+
+       <!-- android:src="@drawable/icon" -->
+    <Button
+        android:id="@+id/swap_currencies"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@id/currency_to"
+
+        android:text="@string/swap_currencies"
+        >
+    </Button>
+
+    <EditText
+        android:id="@+id/amount_from"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/currency_from"
+        android:layout_toLeftOf="@id/swap_currencies"
+        android:textSize="16sp"
+        android:inputType="numberDecimal"
+        >
+    </EditText>
+    <EditText
+        android:id="@+id/amount_to"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/amount_from"
+        android:layout_toRightOf="@id/currency_to"
+        android:layout_toLeftOf="@id/swap_currencies"
+        android:textSize="16sp"
+        android:inputType="none"
+        android:editable="false"
+        >
+    </EditText>
+  </RelativeLayout>
+</LinearLayout>

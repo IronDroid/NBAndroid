@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: com.android.common
+OpenIDE-Module-Localizing-Bundle: com/android/common/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.17
+AutoUpdate-Show-In-Client: false
+

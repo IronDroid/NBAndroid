@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.netbeans.modules.android.grammars
+OpenIDE-Module-Layer: org/netbeans/modules/android/grammars/layer.xml
+OpenIDE-Module-Localizing-Bundle: org/netbeans/modules/android/grammars/Bundle.properties
+OpenIDE-Module-Java-Dependencies: Java > 1.6
+AutoUpdate-Show-In-Client: false
+OpenIDE-Module-Specification-Version: 1.15
+

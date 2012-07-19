@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="Tools">
+            <file name="org-netbeans-modules-android-core-ui-SdkManagerAction.instance">
+                <attr name="delegate" newvalue="org.netbeans.modules.android.core.ui.SdkManagerAction"/>
+                <attr name="displayName" bundlevalue="org.netbeans.modules.android.core.ui.Bundle#CTL_SdkManagerAction"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="Tools">
+            <file name="org-netbeans-modules-android-core-ui-SdkManagerAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Tools/org-netbeans-modules-android-core-ui-SdkManagerAction.instance"/>
+                <attr name="position" intvalue="387"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="OptionsDialog">
+        <folder name="Advanced">
+            <file name="org-netbeans-modules-android-core-ui-AndroidPlatformAdvancedOption.instance">
+                <attr name="controller" newvalue="org.netbeans.modules.android.core.ui.AndroidPlatformOptionsPanelController"/>
+                <attr name="displayName" bundlevalue="org.netbeans.modules.android.core.ui.Bundle#AdvancedOption_DisplayName_AndroidPlatform"/>
+                <attr name="instanceCreate" methodvalue="org.netbeans.spi.options.AdvancedOption.createSubCategory"/>
+                <attr name="keywords" bundlevalue="org.netbeans.modules.android.core.ui.Bundle#AdvancedOption_Keywords_AndroidPlatform"/>
+                <attr name="keywordsCategory" stringvalue="Advanced/AndroidPlatform"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="UI">
+        <folder name="Runtime">
+            <file name="AndroidDevices.instance">
+                <attr name="instanceCreate" methodvalue="org.netbeans.modules.android.core.ui.DevicesNode.getInstance"/>
+                <attr name="instanceClass" stringvalue="org.netbeans.modules.android.core.ui.DevicesNode"/>
+                <attr name="position" intvalue="430"/>
+            </file>
+            <folder name="AndroidDevices">
+                <folder name="AndroidDeviceClients">
+                    <folder name="Actions">
+                        <file name="org-netbeans-modules-android-core-ui-ClientNode-KillAction.instance">
+                            <attr name="instanceCreate" methodvalue="org.netbeans.modules.android.core.ui.ClientNode.createKillAction"/>
+                            <attr name="position" intvalue="500"/>
+                        </file>
+                        <file name="org-netbeans-modules-android-core-ui-ClientNode-GCAction.instance">
+                            <attr name="instanceCreate" methodvalue="org.netbeans.modules.android.core.ui.ClientNode.createGCAction"/>
+                            <attr name="position" intvalue="600"/>
+                        </file>
+                        <file name="SeparatorNew.instance">
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr name="position" intvalue="900"/>
+                        </file>
+                        <file name="org-openide-actions-PropertiesAction.instance">
+                            <attr name="instanceClass" stringvalue="org.openide.actions.PropertiesAction"/>
+                            <attr name="position" intvalue="1000"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

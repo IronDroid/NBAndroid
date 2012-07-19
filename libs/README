@@ -1,0 +1,3 @@
+mockito: used for testing
+findbugs: stripped version (just libs) used to run code analysis in continuous build
+checkstyle: used to run code analysis in continuous build
